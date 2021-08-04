@@ -155,6 +155,7 @@ public class Menu extends MenuTemplate{
 	@Override
 	public void exportarDatos() {
 		String opcion,ruta;
+		boolean seleccion = true;
 		do {
 			System.out.println("---------Exportar Datos-----------");
 			System.out.println("Seleccione el formato a exportar:");
@@ -162,7 +163,8 @@ public class Menu extends MenuTemplate{
 			System.out.println("2.-Formato txt");
 			System.out.println("Ingrese una opción para exportar:");
 			opcion = scan.nextLine();
-		}while(!opcion.equals("1") || !opcion.equals("2"));
+			seleccion = (opcion.equals("1")) || (opcion.equals("2"));
+		}while(opcion.equals("") || seleccion==false);
 		
 		do {
 			System.out.println("Ingresa la ruta en donde desea exportar el archivo clientes.txt:");
