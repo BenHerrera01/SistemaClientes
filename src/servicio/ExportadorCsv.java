@@ -7,53 +7,42 @@ import java.io.IOException;
 import java.util.List;
 
 import modelo.Cliente;
+import utilidades.Utilidad;
 
 public class ExportadorCsv extends Exportador {
+	private Utilidad utilidad = new Utilidad();
 	
 	@Override
 	public void exportar(String fileName, List<Cliente> listaClientes) {
 		File archivo = new File(fileName+".csv");
 		
-		if(!archivo.exists()) {
-			try {
-				archivo.createNewFile();
-				System.out.println("se ha creado el archivo csv");
-				escribir(archivo, listaClientes);
-			} catch (IOException e) {
-				System.out.println(e);
-			}
-		} else if(archivo.exists()) {
-			try {
-				archivo.createNewFile();
-				System.out.println("Sobreescribiendo archivo csv existente...");
-				escribir(archivo, listaClientes);
-			} catch (IOException e) {
-				System.out.println(e);
-			}
-		}
-	}
-	
-	private void escribir(File archivo, List<Cliente> listaClientes) {
+		if(archivo.exists()) {
+			System.out.println("El archivo ya existe, se sobreescribirá");
+		} 
 		try {
+			archivo.createNewFile();
+			System.out.println("se ha creado el archivo txt");
 			FileWriter fw = new FileWriter(archivo);
 			BufferedWriter bw = new BufferedWriter(fw);
 			
-			if(!listaClientes.isEmpty()) {
+			if(!listaClientes.isEmpty()) {			
 				for (Cliente cliente : listaClientes) {
 					bw.write(cliente.getRunCliente()+",");
 					bw.write(cliente.getNombreCliente()+",");
 					bw.write(cliente.getApellidoCliente()+",");
 					bw.write(cliente.getAniosCliente()+",");
-					bw.write(cliente.getNombreCategoria()+"\n");
+					bw.write(utilidad.primeraLetraMayuscula(cliente.getNombreCategoria())+"\n");
 				}
 			}
 			String ruta = archivo.getAbsolutePath();
 			System.out.println("Archivo guardado en: " + ruta);
 
 			bw.close();
+			
 		} catch (IOException e) {
 			System.out.println(e);
 		}
 	}
+	
 	
 }

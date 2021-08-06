@@ -5,16 +5,17 @@ import java.util.List;
 
 import modelo.CategoriaEnum;
 import modelo.Cliente;
+import utilidades.Utilidad;
 
 public class ClienteServicio {
 	private List<Cliente> listaClientes;
+	private Utilidad utilidad = new Utilidad();
 
 	public ClienteServicio() {
 		this.listaClientes = new ArrayList<Cliente>();
 	}
 
 	public void listarClientes() {
-		
 		if(!listaClientes.isEmpty()) {
 			listaClientes.stream().forEach(p -> {
 				System.out.println("------------Datos del Cliente------------\n");
@@ -22,9 +23,11 @@ public class ClienteServicio {
 				System.out.println("Nombre del Cliente: " + p.getNombreCliente());
 				System.out.println("Apellido del Cliente: " + p.getApellidoCliente());
 				System.out.println("Años como Cliente: " + p.getAniosCliente());
-				System.out.println("Categoría del Cliente: " + p.getNombreCategoria());
+				System.out.println("Categoría del Cliente: " + utilidad.primeraLetraMayuscula(p.getNombreCategoria()));
 				System.out.println("\n-----------------------------------------");
 			});
+			estadisticas();
+			System.out.println("");
 		} else {
 			System.out.println("La lista de clientes está vacía");
 		}
@@ -77,5 +80,25 @@ public class ClienteServicio {
 	public void setListaClientes(List<Cliente> listaClientes) {
 		this.listaClientes = listaClientes;
 	}
+	
+	public void estadisticas() {
+
+		int contadorClientes = 0,contadorActivos = 0, contadorInactivos = 0;
+		
+		for (Cliente cliente : listaClientes) {
+			contadorClientes++;
+			if(cliente.getNombreCategoria().equals(CategoriaEnum.ACTIVO)) {
+				contadorActivos++;
+			} else if(cliente.getNombreCategoria().equals(CategoriaEnum.INACTIVO)) {
+				contadorInactivos ++;
+			}
+		}
+		
+		System.out.println("Cantidad de Clientes registrados: " + contadorClientes);
+		System.out.println("Cantidad de Clientes activos: " + contadorActivos);
+		System.out.println("Cantidad de Clientes inactivos: " + contadorInactivos);
+	}
+	
+	
 
 }

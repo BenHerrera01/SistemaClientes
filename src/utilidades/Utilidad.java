@@ -1,5 +1,7 @@
 package utilidades;
 
+import modelo.CategoriaEnum;
+
 public class Utilidad {
 	
 	public void limpiarPantalla() {
@@ -17,6 +19,20 @@ public class Utilidad {
             }
 
         }
+	}
+	
+	/*
+	 * Método que transforma la primera letra de una palabra en mayúscula
+	 * y el resto en minúscula.
+	 * 
+	 * Usado para listar el estado del cliente (Activo o Inactivo)
+	 * 
+	 */
+	
+	public String primeraLetraMayuscula(CategoriaEnum nombreCategoria) {
+		String palabra = nombreCategoria.name().toLowerCase();
+		String estado = palabra.substring(0, 1).toUpperCase()+palabra.substring(1);
+		return estado;
 	}
 	
 }

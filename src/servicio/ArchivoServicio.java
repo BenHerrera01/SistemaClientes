@@ -50,10 +50,9 @@ public class ArchivoServicio extends Exportador {
 	public void exportar(String fileName, List<Cliente> listaClientes) {
 		/*
 		 * 
-		 * 
+		 * Método sobreescrito
 		 * 
 		 */
-		
 	}
 
 	
