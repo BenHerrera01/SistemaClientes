@@ -33,6 +33,9 @@ public class Menu extends MenuTemplate{
 		do {
 			System.out.println("Ingresa RUN del cliente:");
 			run = scan.nextLine();
+			if(clienteServicio.existeCliente(run)!=null) {
+				System.out.println("No se puede agregar un cliente nuevo con un rut ya registrado");
+			}
 		} while (clienteServicio.getListaClientes().contains(clienteServicio.existeCliente(run)) || run.equals(""));
 		
 		System.out.println("Ingresa Nombre del cliente:");

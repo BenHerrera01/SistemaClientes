@@ -67,12 +67,7 @@ public class ClienteServicio {
 
 	public Cliente existeCliente(String run) {//Método que verifica la existencia de un cliente, retorna el cliente
 		Cliente cliente = listaClientes.stream().filter(r -> r.getRunCliente().equals(run)).findAny().orElse(null);
-		if (cliente == null) {
-			return null;
-		} else {
-			return cliente;
-		}
-
+		return cliente;
 	}
 
 	public List<Cliente> getListaClientes() {

@@ -39,17 +39,10 @@ public class ClienteServicioTest {
 
 	@Test
 	public void agregarClienteNullTest() {//Prueba que verifica que el objeto creado no sea nulo
-		String run,nombre,apellido,anios;
+		logger.info("Prueba unitaria agregando un cliente nulo");
+		Cliente clienteAgregado = null;
 
-		run = null;
-		nombre = null;
-		apellido = null;
-		anios = null;
-		
-		logger.info("Prueba unitaria agregando un cliente con campos nulos");
-		Cliente clienteAgregado = new Cliente(run, nombre, apellido, anios);
-
-		assertNotNull(clienteAgregado);
+		assertNull(clienteAgregado);
 		
 	}
 
