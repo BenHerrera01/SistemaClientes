@@ -3,6 +3,7 @@ package servicio;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +36,8 @@ public class ArchivoServicio extends Exportador {
 
 				}
 				System.out.println("Archivo importado desde: " + ruta);
-			} catch (Exception e){
-				
+			} catch (IOException e){
+				System.out.println(e.getMessage());
 			}
 		} else if(!archivo.exists()) {
 			System.out.println("El archivo no existe en la ruta " + ruta);
