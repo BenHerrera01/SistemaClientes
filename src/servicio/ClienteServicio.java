@@ -69,6 +69,13 @@ public class ClienteServicio {
 		}
 	}
 
+	public List<Cliente> getListaClientes() {
+		return listaClientes;
+	}
+
+	public void setListaClientes(List<Cliente> listaClientes) {
+		this.listaClientes = listaClientes;
+	}
 	
 	/*
 	 * 
@@ -82,13 +89,6 @@ public class ClienteServicio {
 		return cliente;
 	}
 
-	public List<Cliente> getListaClientes() {
-		return listaClientes;
-	}
-
-	public void setListaClientes(List<Cliente> listaClientes) {
-		this.listaClientes = listaClientes;
-	}
 	
 	
 	/*
