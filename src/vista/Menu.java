@@ -40,7 +40,7 @@ public class Menu extends MenuTemplate{
 		
 		System.out.println("Ingresa Nombre del cliente:");
 		nombre = scan.nextLine();
-		System.out.println("Inresa Apellido del Cliente");
+		System.out.println("Ingresa Apellido del Cliente");
 		apellido = scan.nextLine();
 		System.out.println("Ingresa años como Cliente");
 		anios = scan.nextLine();
