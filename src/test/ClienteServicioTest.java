@@ -38,9 +38,18 @@ public class ClienteServicioTest {
 	}
 
 	@Test
-	public void agregarClienteNullTest() {//Prueba que verifica que el objeto creado no sea nulo
+	public void agregarClienteNullTest() {//Prueba que verifica si el objeto Cliente es nulo
+		String run,nombre,apellido,anios;
+		run = null;
+		nombre = null;
+		apellido = null;
+		anios = null;
+		
 		logger.info("Prueba unitaria agregando un cliente nulo");
-		Cliente clienteAgregado = null;
+		Cliente clienteAgregado = new Cliente(run,nombre,apellido,anios);
+		//Al realizar un "new" el objeto jamás será nulo independiente sus atributos
+		//por ello para que este sea nulo se debe instanciar como tal.
+		clienteAgregado = null;
 
 		assertNull(clienteAgregado);
 		
