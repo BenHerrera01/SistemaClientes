@@ -3,6 +3,7 @@ package servicio;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import modelo.CategoriaEnum;
 import modelo.Cliente;
 import utilidades.Utilidad;
@@ -68,7 +69,15 @@ public class ClienteServicio {
 		}
 	}
 
-	public Cliente existeCliente(String run) {//Método que verifica la existencia de un cliente, retorna el cliente
+	
+	/*
+	 * 
+	 * Método que verifica si existe un cliente en la lista con un rut específico,
+	 * Retorna el cliente encontrado o null si es que no existe.
+	 * 
+	 */
+	
+	public Cliente existeCliente(String run) {
 		Cliente cliente = listaClientes.stream().filter(r -> r.getRunCliente().equals(run)).findAny().orElse(null);
 		return cliente;
 	}
@@ -80,6 +89,38 @@ public class ClienteServicio {
 	public void setListaClientes(List<Cliente> listaClientes) {
 		this.listaClientes = listaClientes;
 	}
+	
+	
+	/*
+	 * 
+	 * Método que obtiene una lista de clientes y remueve aquellos que ya se encuentren registrados
+	 * en la lista principal [listaClientes].
+	 * 
+	 * Retorna lista modificada
+	 * 
+	 */
+	
+	
+	public List<Cliente> eliminarRepetidos(List<Cliente> listaArchivo){
+		List<Cliente> listaActualizada = new ArrayList<Cliente>(listaArchivo);
+		
+		listaArchivo.stream().forEach(cli -> {
+			for (Cliente cliente : listaClientes) {
+				if(cliente.getRunCliente().equals(cli.getRunCliente())) {
+					listaActualizada.remove(cli);
+				}
+			}
+		});
+		return listaActualizada;
+	}
+	
+	
+	/*
+	 * 
+	 * Método que imprime la cantidad de clientes registrados, así también aquellos que
+	 * se encuentran "Activos" e "Inactivos"
+	 * 
+	 */
 	
 	public void estadisticas() {
 

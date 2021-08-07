@@ -4,10 +4,23 @@ import modelo.CategoriaEnum;
 
 public class Utilidad {
 	
+	/*
+	 * 
+	 * Método que simula una limpieza de pantalla 
+	 * mediante la inserción de saltos de línea
+	 * 
+	 */
+	
 	public void limpiarPantalla() {
 		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
 		System.out.println("");
 	}
+	
+	/*
+	 * 
+	 * Método que simula una pantalla de carga, pero al finalizar el programa
+	 * 
+	 */
 	
 	public void cargando() {
         for (int i = 0; i < 101; i++) {

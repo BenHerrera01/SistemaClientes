@@ -9,6 +9,7 @@ import java.util.List;
 import modelo.CategoriaEnum;
 import modelo.Cliente;
 
+
 public class ArchivoServicio extends Exportador {
 	
 
@@ -28,7 +29,7 @@ public class ArchivoServicio extends Exportador {
 					String apellido = arrayClientes[2];
 					String anios = arrayClientes[3];
 					String estado = arrayClientes[4];
-					
+
 					CategoriaEnum categoria = CategoriaEnum.valueOf(estado.toUpperCase());
 					listaClientes.add(new Cliente(run,nombre,apellido,anios,categoria));
 

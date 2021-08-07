@@ -146,7 +146,7 @@ public class Menu extends MenuTemplate{
 		if(listaConClientes.isEmpty()) {
 			clienteServicio.setListaClientes(listaArchivo);
 		} else if(!listaConClientes.isEmpty()) {
-			listaConClientes.addAll(listaArchivo);
+			listaConClientes.addAll(clienteServicio.eliminarRepetidos(listaArchivo));
 		}
 		fileName1 = "DBClientes.csv";
 		if(!listaArchivo.isEmpty()) {
