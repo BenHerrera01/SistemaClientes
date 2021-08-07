@@ -20,12 +20,29 @@ public class Menu extends MenuTemplate{
 	private String fileName1 = "DBClientes.csv";
 	private Utilidad utilidad = new Utilidad();
 	
+	/*
+	 * 
+	 * Método del menú que llama al método listarClientes() de la clase ClienteServicio para mostrar
+	 * los clientes registrados.
+	 * 
+	 */
+	
 	@Override
 	public void listarClientes() {
 			clienteServicio.listarClientes();
 	}
+	
+	/*
+	 * 
+	 * Método del menú que llama al método agregarCliente() de la clase ClienteServicio.
+	 * 
+	 * Antes de llamar al método para agregar, se verifica si el cliente con un rut
+	 * especificado está registrado en el sistema.
+	 * 
+	 */
+	
 	@Override
-	public void agregarCliente() {//Agrega un cliente si es que ya no existe uno registrado con su rut
+	public void agregarCliente() {
 		utilidad.limpiarPantalla();
 		String run, nombre, apellido, anios;
 		
@@ -47,6 +64,15 @@ public class Menu extends MenuTemplate{
 		clienteServicio.agregarCliente(run, nombre, apellido, anios);
 		
 	}
+	
+	/*
+	 * 
+	 * Método del menú que llama al método editarCliente() de la clase ClienteServicio para
+	 * cambiar el estado de un cliente apartir de su rut, o cambiar el valor de sus atributos a
+	 * partir de la opción seleccionada (Existe sobrecarga de métodos).
+	 *  
+	 */
+	
 	@Override
 	public void editarCliente() {
 		int opcion;
@@ -134,6 +160,17 @@ public class Menu extends MenuTemplate{
 		}
 		
 	}
+	
+	/*
+	 * 
+	 * Método del menú que importa a la lista los datos de clientes a partir de un archivo csv.
+	 * 
+	 * Si la lista principal se encuentra vacía, se asignan los datos de los clientes a ella.
+	 * Si la lista no se encuentra vacía, se adjuntan los datos del arhivo a ella, verificando
+	 * si se encuentran clientes repetidos (por run) eliminando duplicados.
+	 * 
+	 */
+	
 	@Override
 	public void importarDatos() {
 		String ruta;
@@ -155,6 +192,15 @@ public class Menu extends MenuTemplate{
 
 		
 	}
+	
+	/*
+	 * 
+	 * Método del menú que llama a los métodos exportar() de las clases ExportadorCsv y 
+	 * ExportadorTxt (que heredan de la clase Exportador), generando los archivos especificados
+	 * con la información de los clientes, según se escoja.
+	 * 
+	 */
+	
 	@Override
 	public void exportarDatos() {
 		String opcion,ruta;
@@ -186,6 +232,14 @@ public class Menu extends MenuTemplate{
 		
 		
 	}
+	
+	/*
+	 * 
+	 * Método del menú que termina la ejecución del programa y 
+	 * a su vez cierra el Scanner.
+	 * 
+	 */
+	
 	@Override
 	public void terminarPrograma() {
 		System.out.println("Saliendo del programa...");
