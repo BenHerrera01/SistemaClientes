@@ -220,7 +220,7 @@ public class Menu extends MenuTemplate{
 			do {
 				System.out.println("Ingresa la ruta en donde desea exportar el archivo clientes.txt:");
 				ruta = scan.nextLine();
-				fileName = ruta+fileName;
+				fileName = ruta+"/"+fileName;
 				if(opcion.equals("1") && !ruta.equals("")) {
 					exportadorCsv = new ExportadorCsv();
 					exportadorCsv.exportar(fileName, clienteServicio.getListaClientes());
