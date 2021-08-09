@@ -16,6 +16,13 @@ public class ClienteServicio {
 		this.listaClientes = new ArrayList<Cliente>();
 	}
 
+	/*
+	 * 
+	 * Método que lista los objetos de tipo Cliente que están almacenados en la listaClientes 
+	 * (si la lista no está vacía).
+	 * 
+	 */
+	
 	public void listarClientes() {
 		if(!listaClientes.isEmpty()) {
 			listaClientes.stream().forEach(p -> {
@@ -36,11 +43,26 @@ public class ClienteServicio {
 		
 	}
 
+	/*
+	 * 
+	 * Método que recibe por parámetro los atributos de un cliente, crea un objeto de 
+	 * tipo Cliente a partir de esos atributos y lo agrega a la lista.
+	 * 
+	 */
+	
 	public void agregarCliente(String run, String nombre, String apellido, String anios) {
 		Cliente cliente = new Cliente(run, nombre, apellido, anios);
 		listaClientes.add(cliente);
 	}
 
+	/*
+	 * 
+	 * Método que recibe una opción que ingresó el usuario, un objeto de tipo Cliente y los atributos.
+	 * 
+	 * dependiendo de la opción, se modifica el atributo del cliente.
+	 * 
+	 */
+	
 	public void editarCliente(int opcion, Cliente cliente, String nuevoRun, String nombre, String apellido,
 			String anios) {//Método que edita los atributos del cliente de acuerdo a la opción ingresada por el usuario
 		switch (opcion) {
@@ -61,6 +83,14 @@ public class ClienteServicio {
 		}
 	}
 
+	/*
+	 * 
+	 * Método que recibe una selección y un objeto de tipo Cliente.
+	 * 
+	 * Se cambia el estado del cliente (ACTIVO-INACTIVO) dependiendo de la opción.
+	 * 
+	 */
+	
 	public void editarCliente(int seleccion, Cliente cliente) {// Método que edita el estado del cliente
 		if (seleccion == 1) {
 			cliente.setNombreCategoria(CategoriaEnum.INACTIVO);
