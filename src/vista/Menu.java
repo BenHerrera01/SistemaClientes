@@ -37,7 +37,7 @@ public class Menu extends MenuTemplate{
 	 * Método del menú que llama al método agregarCliente() de la clase ClienteServicio.
 	 * 
 	 * Antes de llamar al método para agregar, se verifica si el cliente con un rut
-	 * especificado está registrado en el sistema.
+	 * especificado se encuentra registrado en el sistema.
 	 * 
 	 */
 	
@@ -69,7 +69,7 @@ public class Menu extends MenuTemplate{
 	 * 
 	 * Método del menú que llama al método editarCliente() de la clase ClienteServicio para
 	 * cambiar el estado de un cliente apartir de su rut, o cambiar el valor de sus atributos a
-	 * partir de la opción seleccionada (Existe sobrecarga de métodos).
+	 * partir de la opciónseleccionada (Existe sobrecarga de métodos).
 	 *  
 	 */
 	
@@ -78,7 +78,7 @@ public class Menu extends MenuTemplate{
 		int opcion;
 		String run;
 		System.out.println("------------Editar Cliente------------");
-		System.out.println("Seleccione qué desea hacer:");
+		System.out.println("Seleccione que desea hacer:");
 		System.out.println("1.-Cambiar el estado del Cliente");
 		System.out.println("2.-Editar los datos ingresados del Cliente");
 		System.out.println("");
@@ -121,7 +121,7 @@ public class Menu extends MenuTemplate{
 				System.out.println("2.-El Nombre del Cliente es: " + cliente2.getNombreCliente());
 				System.out.println("3.-El Apellido del Cliente es: " + cliente2.getApellidoCliente());
 				System.out.println("4.-Los años como Cliente son: " + cliente2.getAniosCliente());
-				System.out.println("\nIngrese opcion a editar de los datos del cliente:");
+				System.out.println("\nIngrese opción a editar de los datos del cliente:");
 				opc1 = Integer.parseInt(scan.nextLine());
 				String nuevoRun="", nuevoNombre="", nuevoApellido="",nuevoAnio="";
 				System.out.println("-----------------------------");
