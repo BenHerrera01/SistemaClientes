@@ -1,6 +1,6 @@
 # Autor: Benjamin Herrera
 
-#### Explicación del Problema
+### Explicación del Problema
 
 - Se pide crear un sistema para la visualización, inserción, edición, importación y exportación de clientes con un rut, nombre, apellido, años como cliente (tiempo) y un estado (Activo-Inactivo).
 
